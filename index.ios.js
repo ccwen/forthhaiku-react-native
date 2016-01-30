@@ -57,13 +57,14 @@ var forthhaiku = React.createClass({
     shader=GL.Shaders.create({Haiku:{frag:frag}});
     this.forceUpdate();
   }
-  ,componentWillUnmount:function(){
-    clearInterval(this.timer);
+  ,componentDidMount:function(){
+   requestAnimationFrame(this.step);
   }
-  ,componentDidMount:function() {
-    this.timer=setInterval(function(){
-      this.setState({time_val:GetTime()}); 
-    }.bind(this),5);
+  ,step:function(){
+    this.setState({time_val:GetTime()},function(){
+        requestAnimationFrame(this.step);
+    }.bind(this));
+    
   }
   ,componentWillMount:function(){
 
