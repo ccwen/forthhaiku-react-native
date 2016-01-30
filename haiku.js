@@ -692,7 +692,7 @@ function make_fragment_shader(input_code) {
       'return [', 'gl_FragColor = vec4(');
   code = code.join('\n');
 
-  console.log('----------SHADER:\n' + code + '\n\n\n');
+  //console.log('----------SHADER:\n' + code + '\n\n\n');
 
   return code;
 }
@@ -1281,7 +1281,7 @@ function decodeKey(code) {
   }
   return null;
 }
-
+/*
 window.addEventListener('load', connect_touch);
 
 window.addEventListener('keydown', function(e) {
@@ -1297,3 +1297,6 @@ window.addEventListener('keyup', function(e) {
     window.stroke_buttons &= ~(1<<k);
   }
 });
+*/
+
+module.exports={compile:compile,make_fragment_shader:make_fragment_shader};
